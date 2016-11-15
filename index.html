@@ -7,7 +7,12 @@
 		<script src="https://d3js.org/d3.v3.min.js"></script>
 
 		<style type="text/css">
-			body{font-family: Arial, sans-serif;font-size:9px;}
+			body{font-family: Arial, sans-serif; font-size: 9px;}
+			h1{margin-top: 750px; margin-left: 75px; font-size: 22px; display:inline;
+				padding: 10px; border: 1px solid #b6b6b6;}
+			h2{margin-left: 45px; font-size: 16px;}
+			h3{margin-left: 45px; font-size: 13px;}
+			p{margin-left: 45px; font-size: 12px;}
 			.axis path,.axis line {fill: none;stroke:#b6b6b6;shape-rendering: crispEdges;}
 			.tick text{fill:#303030;}
 			g.country.active{cursor:pointer;}
@@ -21,16 +26,30 @@
 	<body>
 
 	<div id="wrapper">
-	<h1>Tesla Motors in Europe: a dramatic example of fiscal incentives on sales</h1>
-	<h2><i> (And electrical cars batteries work fine in cold climate, thank you very much)</i></h2>
+	</br>
+	<h1>Tesla Motors in Europe: a dramatic example of fiscal incentives on sales figures</h1>
+		</br>
+	</br>
+			<p>
+			This visualization shows the quarterly sales figures of Tesla Model S and X in Europe, 
+			in circle sizes.</br>The last column shows 2016-YTD Unit Sales per One Million of Habitants.
+			<!-- 	</br>Order: <i>Sales per 1M habitants, decreasing</i> -->
+			</br>	
+			<i>Pro-Tip: Mouse over the country name to display the actual figures.</i>
+			</p>
+		</br>
+		<h2>The end of fiscal incentives for electrical vehicules in Denmark</h2>
+			<p>
+			At first glance, you may have noticed an outlier: Denmark in Q4-2015.</br>
+			This is not a bug nor a transcription error.</br>
+			On December 31, 2015 Denmark ended its total VAT exemption on electrical vehicules in place 
+			since 1985.</br>
+			On January 1, 2016 all new orders of electrical vehicules were submitted to the regular automotive VAT rate which, in the case of Tesla Motors expensive cars, was a stunning 180%.</br><b>This basically tripled the retail price overnight.</b></br>
+			As a result, the pre-reservations of Tesla cars, followed by immediate registration of license plates, exploded in the last weeks of 2015.</br>
+			The following quarters of 2016 saw a decline of new sales close the 85% year-to-year.</br>
+			</p>
+		</br>
 
-	<h2>
-		<p>This visualization shows the quarterly sales figures of Tesla Model S and X in Europe, in circle sizes.</p>
-		<p>The last column shows 2016-YTD Unit Sales per One Million of Habitants.</p>
-		<p> Order: <i>Sales per 1M habitants, decreasing</i></p>
-	</h2>
-
-	<h3>Pro-Tip: Mouse over the country name to display the actual figures.</h3>
     </div>
 
 		<script type="text/javascript">
@@ -92,12 +111,10 @@
 							}
 						});
 
-
 						// Create the rows in the graph for each country
 						var idxRow=0;
 						var rScale = d3.scale.linear().domain([0, Math.sqrt(2056)]).range([0, 22]);
 						for (var country in countries) {
-
 							var g = svg.append("g").attr("class","country");
 							
 							var circles = g.selectAll("circle").data(countries[country]).enter().append("circle");
@@ -110,6 +127,7 @@
 								//.attr("r", function(d) { return rScale(d[1]); })
 								.attr("r", function(d) { return rScale(Math.sqrt(d[1])); })
 								.style("fill", function(d) { return c(idxRow); });
+								
 							// Print sales values
 							text
 								.attr("x",function(d, i) { return xScale(d[0])-5; })
@@ -128,7 +146,6 @@
 								.style("fill", function(d) { return c(idxRow); })
 								.on("mouseover", mouseover)
 								.on("mouseout", mouseout);
-
 							idxRow++;
 						}
 					});
@@ -138,18 +155,15 @@
 					d3.select(g).selectAll("circle").style("display","none");
 					d3.select(g).selectAll("text.value").style("display","block");
 				}
-
 				function mouseout(p) {
 					var g = d3.select(this).node().parentNode;
 					d3.select(g).selectAll("circle").style("display","block");
 					d3.select(g).selectAll("text.value").style("display","none");
 				}
 			}
-
 			// Additional Population Graph, feedback #2
 			// http://www.d3noob.org/2013/07/arranging-more-than-one-d3js-graph-on.html
 			function createPopulationGraph(data) {
-
 				var width = 150;
 				var barHeight = 40;
 				var canvasHeight = 800;
@@ -161,23 +175,18 @@
 						.style("margin-left", margin.left + "px")
 						.append("g")
 						.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
 				
 				var x = d3.scale.linear().range([0, 75]);
-
 				x.domain([0, d3.max(data, function(d) { return d.weight; })]);
-
 				var bar = chart.selectAll("g")
 							.data(data)
 							.enter()
 							.append("g")
 							.attr("class","chart");
-
 				bar.append("text")
 					.attr("class", "Population")
 					.attr("transform", "translate(" + 125 + "," + 0 + ")")
 					.text("Sales per 1M habitants")
-
 				bar.append("rect")
 					.attr("x", function(obj) { return 0; })
 					.attr("y", function(obj, index) { return index * 40 + 14; })
@@ -185,25 +194,17 @@
 					.attr("height", barHeight - 20)
 					.fill()
 					;
-
 				bar.append("text")
 					.attr("x", function(obj) { return 120; })
 					.attr("y", function(obj, index) { return index * 40 + 28; })
 					.text(function(obj) { return obj.weight; });
 			}
-
-
 			createSaleGraph();
-
 			function type(d) {
 				d.weight = +d.weight; // coerce to number
 				return d;
 			}
-
 			d3.tsv("EU_pop_sales_per_1M_hab.csv", type, createPopulationGraph);
-
-
-
 		</script>
 
 	</body>
