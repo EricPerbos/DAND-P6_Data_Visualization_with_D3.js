@@ -34,7 +34,7 @@
 
 		<script type="text/javascript">
 
-
+			// Initial Sales Graph
 			function createSaleGraph() {
 
 				// x axis configuration
@@ -60,13 +60,12 @@
 						.append("g")
 						.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-				// ???
-				// var c = d3.scale.category20();
+				// Adds the color scheme of TeslaMotors.com
 				var c = d3.scale.ordinal().range(["#cc0000", "#606060"]);
 
-				// load the data from the csv file
+				// Load the data from the csv file
 				d3.csv("tesla_3_per_Mhab.csv")
-					// transform each line of the csv file
+					// Transform each line of the csv file
 					.row(function(data) {
 						var d = d3.time.format('%b %Y').parse(data.date);
 						return {
@@ -77,16 +76,12 @@
 					})
 					.get(function(error, lines) {
 
-						// render the xaxis on the canvas
+						// Render the xaxis on the canvas
 						svg.append("g").attr("class", "x axis").call(xAxis);
 
-						// group the lines by country
-						// each country contains the pair x,y in an array
-						// exemple
-						// countries: {
-						//		france: [ [ "Q1-2013", 0 ], [ "Q2-2013", 10 ], .... ],
-						//		...
-						// }
+						// Group the lines by country
+						// Each country contains the pair x,y in an array
+						// Exemple countries: {	france: [ [ "Q1-2013", 0 ], [ "Q2-2013", 10 ], .... ],}
 						var countries = {};
 						lines.forEach(function(line) {
 							if (countries[line.country]) {
@@ -96,13 +91,9 @@
 							}
 						});
 
-						// {}
-						// { france: [] }
-						// { france: [ [ "Q1-2013", 0 ] ] }
 
-						// create the rows in the graph for each country
+						// Create the rows in the graph for each country
 						var idxRow=0;
-						//var rScale = d3.scale.linear().domain([0, 2056]).range([2, 25]);
 						var rScale = d3.scale.linear().domain([0, Math.sqrt(2056)]).range([0, 22]);
 						for (var country in countries) {
 
@@ -111,16 +102,14 @@
 							var circles = g.selectAll("circle").data(countries[country]).enter().append("circle");
 							var text = g.selectAll("text").data(countries[country]).enter().append("text");
 
-							/*var rScale = d3.scale.linear()
-											.domain([0, d3.max(countries[country], function(d) { return d[1]; })])
-											.range([2, 25]);*/
+							// Draw circles
 							circles
 								.attr("cx", function(d, i) { return xScale(d[0]); })
 								.attr("cy", idxRow*40+25)
 								//.attr("r", function(d) { return rScale(d[1]); })
 								.attr("r", function(d) { return rScale(Math.sqrt(d[1])); })
 								.style("fill", function(d) { return c(idxRow); });
-
+							// Print sales values
 							text
 								.attr("x",function(d, i) { return xScale(d[0])-5; })
 								.attr("y", idxRow*40+25)
@@ -129,7 +118,7 @@
 								.style("fill", function(d) { return c(idxRow); })
 								.style("display","none");
 							
-							
+							// Add country name on left with mouseover
 							g.append("text")
 								.attr("y", idxRow*40+25)
 								.attr("x",xAxisWidth-750)
@@ -139,18 +128,10 @@
 								.on("mouseover", mouseover)
 								.on("mouseout", mouseout);
 
-							// g.append("text")
-							// 	.attr("y", idxRow*40+25)
-							// 	.attr("x",xAxisWidth-750)
-							// 	.attr("class","label")
-							// 	.text(country)
-							// 	.style("fill", function(d) { return c(idxRow); })
-
-
-
 							idxRow++;
 						}
 					});
+				
 				function mouseover(p) {
 					var g = d3.select(this).node().parentNode;
 					d3.select(g).selectAll("circle").style("display","none");
@@ -164,6 +145,8 @@
 				}
 			}
 
+			// Additional Population Graph, feedback #2
+			// http://www.d3noob.org/2013/07/arranging-more-than-one-d3js-graph-on.html
 			function createPopulationGraph(data) {
 
 				var width = 150;
