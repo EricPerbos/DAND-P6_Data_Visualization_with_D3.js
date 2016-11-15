@@ -14,7 +14,10 @@ After feedback, we added a small bar chart to show the "Sales per million of hab
 ## Design
 Bar/column and line charts are useful to compare sales over time between several regions of similar size. But if you have more than five regions or the min-max values are disparate (ex: factor 1 to 10), they become overloaded and difficult to read.
 
-In this project, we strongly exceed those limits with  12 countries with min-max values of 2 (Finland Q4-2013) and 2,086 (Norway Q1-2014). Here's an exemple of column chart which demonstrate the issue. <a href="http://tinypic.com?ref=2v8pn9u" target="_blank"><img src="http://i68.tinypic.com/2v8pn9u.jpg" border="0" alt="Image and video hosting by TinyPic"></a>
+In this project, we strongly exceed those limits with  12 countries with min-max values of 2 (Finland Q4-2013) and 2,086 (Norway Q1-2014). Here's an exemple of column chart which demonstrate the issue.
+
+<a href="http://tinypic.com?ref=2v8pn9u" target="_blank">
+<img src="http://i68.tinypic.com/2v8pn9u.jpg" border="0" alt="Image and video hosting by TinyPic"></a>
 
 We researched through different business publications and found circle size to be a better option, although with one potential pitfall due to the formula used to calculate its size or more accurately its area = Pi * r².
 
