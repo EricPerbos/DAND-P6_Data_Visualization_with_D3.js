@@ -36,7 +36,7 @@ We researched through different business publications and found circle size to b
 
 <b>Feedback by Tesla shareholder #2:</b> "The use of different diameter circles to signify volume is pretty clear (...) </br>Thinking about it a bit more, I think the strength of this dot graph is to show much more data points at the same time without losing track of which data point represents a certain country (...)</br>Also it seems the biggest sales are not located in largest countries, could you indicate the population size maybe ?"
 
-<b>Change #2:</b> I added a small bar chart on the right, first with percentage of population vs. total population.</br>Then I reaslised that there was no direct connection between the two, Sales on one side, Population on the other.</br> So I computed a ratio "Sales per 1 million habitant" and changed the ranking order from alphabetical to Sales_per_1M_Hab, decreasing.
+<b>Change #2:</b> I added a small bar chart on the right, first with percentage of population vs. total population.</br>Later I realised that there was no obvious link between the two, Sales on one side, Population on the other.</br> So I computed a ratio "Sales per 1 million habitant" and changed the ranking order from alphabetical to Sales_per_1M_Hab, decreasing.
 
 
 ## Third draft and feedback
