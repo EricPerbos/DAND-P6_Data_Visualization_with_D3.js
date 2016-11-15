@@ -48,9 +48,11 @@ I researched through different business publications and found an example with c
 
 ## Ressources
 
+https://teslamotorsclub.com/tmc/threads/tesla-europe-registration-stats.61651/
 http://bl.ocks.org/d3noob
 http://www.huffingtonpost.com/randy-krum/false-visualizations-when_b_5736106.html
 https://docs.google.com/spreadsheets/d/1hRFvUhAVi7UUP15rBcAU1W-_LGqnz3fNi3bKUqTeS-Q/edit#gid=0
 http://neuralengr.com/asifr/journals/
+https://github.com/irenatrend/Data_Visualization_And_D3js_Udacity
 
 
