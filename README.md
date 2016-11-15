@@ -25,7 +25,7 @@ We researched through different business publications and found circle size to b
 
 <b>Feedback by Tesla shareholder #1:</b> "It's a nice visualization but why do you choose so many different colors so light on white background ? Also the name of countries on the right is counterintuitive"
 
-<b>Change:</b> I switched the names to the right and opted for a dual color based on Tesla Motors website.
+<b>Change #1:</b> I switched the names to the right and opted for a dual color based on Tesla Motors website.
 
 
 ## Second draft and feedback
@@ -34,17 +34,17 @@ We researched through different business publications and found circle size to b
 
 <b>Feedback by Tesla shareholder #2:</b> "The use of different diameter circles to signify volume is pretty clear (...) </br>Thinking about it a bit more, I think the strength of this dot graph is to show much more data points at the same time without losing track of which data point represents a certain country (...)</br>Also it seems the biggest sales are not located in largest countries, could you indicate the population size maybe ?"
 
-<b>Change:</b> I added a small bar chart on the right, first with percentage of population vs. total population.</br>Then I reaslised that there was no direct connection between the two, Sales on one side, Population on the other.</br> So I computed a ratio "Sales per 1 million habitant" and changed the ranking order from alphabetical to Sales_per_1M_Hab, decreasing.
+<b>Change #2:</b> I added a small bar chart on the right, first with percentage of population vs. total population.</br>Then I reaslised that there was no direct connection between the two, Sales on one side, Population on the other.</br> So I computed a ratio "Sales per 1 million habitant" and changed the ranking order from alphabetical to Sales_per_1M_Hab, decreasing.
 
 ## Third draft and feedback
 
 <a href="http://tinypic.com?ref=10mr4zm" target="_blank"><img src="http://i68.tinypic.com/10mr4zm.jpg" border="0" alt="Image and video hosting by TinyPic"></a>
 
-<b>Feedback by Tesla shareholder #3:</b>I think that the circles are an effective use of real estate given how many countries are listed and the marked differences in sales in each. </br> If one were to compare Norway's sales to Italy, the real estate used on the graph by Norway would push Italy off the page. The circles, in my mind's eye, are essentially looking at the bar graph from above. The bigger the bar, the closer it is to me, and larger and easier to see.
+<b>Feedback by Tesla shareholder #3:</b>"I think that the circles are an effective use of real estate given how many countries are listed and the marked differences in sales in each. </br> If one were to compare Norway's sales to Italy, the real estate used on the graph by Norway would push Italy off the page.</br>The circles, in my mind's eye, are essentially looking at the bar graph from above. The bigger the bar, the closer it is to me, and larger and easier to see.
 
-I like how at the end, @Taipan does use the bar chart to show sales per million inhabitants. It provides a nice juxtaposition of the bar graph in relation to the circles.
+I like how at the end, Eric does use the bar chart to show sales per million inhabitants. It provides a nice juxtaposition of the bar graph in relation to the circles.
 
-Overall I found the graphic very informative and useful to show how government incentives and changes affect Tesla sales in Europe (see Denmark).
+Overall I found the graphic very informative and useful to show how government incentives and changes affect Tesla sales in Europe (see Denmark)."
 
 
 
