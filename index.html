@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" /> 
+
+
+		<script src="https://d3js.org/d3.v3.min.js"></script>
+
+		<style type="text/css">
+			body{font-family: Arial, sans-serif;font-size:9px;}
+			.axis path,.axis line {fill: none;stroke:#b6b6b6;shape-rendering: crispEdges;}
+			.tick text{fill:#303030;}
+			g.country.active{cursor:pointer;}
+			text.label{font-size:12px;font-weight:bold;cursor:pointer;}
+			text.value{font-size:12px;font-weight:bold;}
+			.chart rect {fill: #606060;}
+			.chart text {fill: #606060;font: 12px sans-serif;text-anchor: end;}
+		</style>
+	</head>
+
+	<body>
+
+	<div id="wrapper">
+	<h1>Tesla Motors in Europe: a visualization of quarterly sales figures</h1>
+
+	<h2>
+		<p>This visualization shows the quarterly sales figures of Tesla Model S and X in Europe, in circle sizes.</p>
+		<p>The last column shows 2016-YTD Unit Sales per One Million of Habitants.</p>
+		<p> Order: <i>Sales per 1M habitants, decreasing</i></p>
+	</h2>
+
+	<h3>Pro-Tip: Mouse over the country name to display the actual figures.</h3>
+    </div>
+
+		<script type="text/javascript">
+
+			// Initial Sales Graph
+			function createSaleGraph() {
+
+				// x axis configuration
+				var xAxisWidth = 750;
+				var domainX = [];
+				for (var year = 2013; year<2017; year++) {
+					for (var quarter = 1; quarter < 5; quarter++) {
+					domainX.push('Q'+quarter+'-'+year);
+					}
+				}
+				var xScale = d3.scale.ordinal().domain(domainX).rangePoints([75, xAxisWidth]);
+				var xAxis = d3.svg.axis().scale(xScale).orient("top");
+
+				// Adds the svg canvas
+				var canvasHeight = 800;
+				var margin = {top: 50, right: 20, bottom: 0, left: 20};
+				var svg = d3.select("body")
+						.append("svg")
+						.attr("width", xAxisWidth + margin.left + margin.right)
+						.attr("height", canvasHeight + margin.top + margin.bottom)
+						.style("margin-left", margin.left + "px")
+						.style("float", "left")
+						.append("g")
+						.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+				// Adds the color scheme of TeslaMotors.com
+				var c = d3.scale.ordinal().range(["#cc0000", "#606060"]);
+
+				// Load the data from the csv file
+				d3.csv("tesla_3_per_Mhab.csv")
+					// Transform each line of the csv file
+					.row(function(data) {
+						var d = d3.time.format('%b %Y').parse(data.date);
+						return {
+							country: data.country,
+							quarter: 'Q' + (Math.floor(d.getMonth()/3) + 1) + '-' + d.getFullYear(),
+							count: parseInt(data.sales)
+						};
+					})
+					.get(function(error, lines) {
+
+						// Render the xaxis on the canvas
+						svg.append("g").attr("class", "x axis").call(xAxis);
+
+						// Group the lines by country
+						// Each country contains the pair x,y in an array
+						// Exemple countries: {	france: [ [ "Q1-2013", 0 ], [ "Q2-2013", 10 ], .... ],}
+						var countries = {};
+						lines.forEach(function(line) {
+							if (countries[line.country]) {
+								countries[line.country].push([line.quarter, line.count]);
+							} else {
+								countries[line.country] = [];
+							}
+						});
+
+
+						// Create the rows in the graph for each country
+						var idxRow=0;
+						var rScale = d3.scale.linear().domain([0, Math.sqrt(2056)]).range([0, 22]);
+						for (var country in countries) {
+
+							var g = svg.append("g").attr("class","country");
+							
+							var circles = g.selectAll("circle").data(countries[country]).enter().append("circle");
+							var text = g.selectAll("text").data(countries[country]).enter().append("text");
+
+							// Draw circles
+							circles
+								.attr("cx", function(d, i) { return xScale(d[0]); })
+								.attr("cy", idxRow*40+25)
+								//.attr("r", function(d) { return rScale(d[1]); })
+								.attr("r", function(d) { return rScale(Math.sqrt(d[1])); })
+								.style("fill", function(d) { return c(idxRow); });
+							// Print sales values
+							text
+								.attr("x",function(d, i) { return xScale(d[0])-5; })
+								.attr("y", idxRow*40+25)
+								.attr("class","value")
+								.text(function(d){ return d[1]; })
+								.style("fill", function(d) { return c(idxRow); })
+								.style("display","none");
+							
+							// Add country name on left with mouseover
+							g.append("text")
+								.attr("y", idxRow*40+25)
+								.attr("x",xAxisWidth-750)
+								.attr("class","label")
+								.text(country)
+								.style("fill", function(d) { return c(idxRow); })
+								.on("mouseover", mouseover)
+								.on("mouseout", mouseout);
+
+							idxRow++;
+						}
+					});
+				
+				function mouseover(p) {
+					var g = d3.select(this).node().parentNode;
+					d3.select(g).selectAll("circle").style("display","none");
+					d3.select(g).selectAll("text.value").style("display","block");
+				}
+
+				function mouseout(p) {
+					var g = d3.select(this).node().parentNode;
+					d3.select(g).selectAll("circle").style("display","block");
+					d3.select(g).selectAll("text.value").style("display","none");
+				}
+			}
+
+			// Additional Population Graph, feedback #2
+			// http://www.d3noob.org/2013/07/arranging-more-than-one-d3js-graph-on.html
+			function createPopulationGraph(data) {
+
+				var width = 150;
+				var barHeight = 40;
+				var canvasHeight = 800;
+				var margin = {top: 50, right: 200, bottom: 0, left: 0};
+				var chart = d3.select("body")
+						.append("svg")
+						.attr("width", width)
+						.attr("height", canvasHeight + margin.top + margin.bottom)
+						.style("margin-left", margin.left + "px")
+						.append("g")
+						.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+				
+				var x = d3.scale.linear().range([0, 75]);
+
+				x.domain([0, d3.max(data, function(d) { return d.weight; })]);
+
+				var bar = chart.selectAll("g")
+							.data(data)
+							.enter()
+							.append("g")
+							.attr("class","chart");
+
+				bar.append("text")
+					.attr("class", "Population")
+					.attr("transform", "translate(" + 125 + "," + 0 + ")")
+					.text("Sales per 1M habitants")
+
+				bar.append("rect")
+					.attr("x", function(obj) { return 0; })
+					.attr("y", function(obj, index) { return index * 40 + 14; })
+					.attr("width", function(d) { return x(d.weight); })
+					.attr("height", barHeight - 20)
+					.fill()
+					;
+
+				bar.append("text")
+					.attr("x", function(obj) { return 120; })
+					.attr("y", function(obj, index) { return index * 40 + 28; })
+					.text(function(obj) { return obj.weight; });
+			}
+
+
+			createSaleGraph();
+
+			function type(d) {
+				d.weight = +d.weight; // coerce to number
+				return d;
+			}
+
+			d3.tsv("EU_pop_sales_per_1M_hab.csv", type, createPopulationGraph);
+
+
+
+		</script>
+
+	</body>
+</html>
