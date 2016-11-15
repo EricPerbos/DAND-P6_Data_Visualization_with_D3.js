@@ -15,11 +15,7 @@ Bar/column and line charts are useful to compare sales over time between several
 In this project, we strongly exceed those limits with  12 countries with min-max values of 2 (Finland Q4-2013) and 2,086 (Norway Q1-2014).</br>Here's an exemple of column chart which demonstrate the issue.
 <a href="http://tinypic.com?ref=2n0k8s2" target="_blank"><img src="http://i63.tinypic.com/2n0k8s2.jpg" border="0" alt="Image and video hosting by TinyPic"></a>
 
-We researched through different business publications and found circle size to be a better option, although with one potential pitfall due to the formula used to calculate its size or more accurately its area = Pi * r².
-
-This was brought to our attention during Udacity Data Visualization class, <b>Lesson 8.23 "How to lie with circles"</b> and the article [False Visualizations: When Journalists Get Data Viz Wrong](http://www.huffingtonpost.com/randy-krum/false-visualizations-when_b_5736106.html).
-
-We followed the same principle by using <b>d3.scale.sqrt()</b> to get the square root of data values to determine the radius of each circle.
+We researched through different business publications and found circle size to be a better option, although with one potential pitfall due to the formula used to calculate its size or more accurately its area = Pi * r².</br>This was brought to our attention during Udacity Data Visualization class, <b>Lesson 8.23 "How to lie with circles"</b> and the article [False Visualizations: When Journalists Get Data Viz Wrong](http://www.huffingtonpost.com/randy-krum/false-visualizations-when_b_5736106.html).</br>We followed the same principle by using <b>d3.scale.sqrt()</b> to get the square root of data values to determine the radius of each circle.
 
 
 
