@@ -18,6 +18,8 @@ In this project, we strongly exceed those limits with  12 countries with min-max
 
 <a href="http://tinypic.com?ref=308zivt" target="_blank"><img src="http://i64.tinypic.com/308zivt.jpg" border="0" alt="Image and video hosting by TinyPic"></a>
 
+<a href="http://tinypic.com?ref=2n0k8s2" target="_blank"><img src="http://i63.tinypic.com/2n0k8s2.jpg" border="0" alt="Image and video hosting by TinyPic"></a>
+
 We researched through different business publications and found circle size to be a better option, although with one potential pitfall due to the formula used to calculate its size or more accurately its area = Pi * r².
 
 This was brought to our attention during Udacity Data Visualization class, <b>Lesson 8.23 "How to lie with circles"</b> and the article [False Visualizations: When Journalists Get Data Viz Wrong](http://www.huffingtonpost.com/randy-krum/false-visualizations-when_b_5736106.html).
