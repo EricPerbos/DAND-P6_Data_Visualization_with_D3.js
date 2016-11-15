@@ -19,6 +19,10 @@ We researched through different business publications and found circle size to b
 
 </br>This was brought to our attention during Udacity Data Visualization class, <b>Lesson 8.23 "How to lie with circles"</b> and the article [False Visualizations: When Journalists Get Data Viz Wrong](http://www.huffingtonpost.com/randy-krum/false-visualizations-when_b_5736106.html).</br>We followed the same principle by using <b>d3.scale.sqrt()</b> to get the square root of data values to determine the radius of each circle.
 
+## First draft
+
+<a href="http://tinypic.com?ref=2rxzeyo" target="_blank"><img src="http://i65.tinypic.com/2rxzeyo.jpg" border="0" alt="Image and video hosting by TinyPic"></a>
+
 
 
 
