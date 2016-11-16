@@ -27,7 +27,7 @@ I researched through different business publications and found an example with c
 
 <b>Feedback by Tesla shareholder #1:</b> "It's a nice visualization but why do you choose so many different colors so light on white background ? Also the name of countries on the right is counterintuitive"
 
-<b>Change #1:</b> I switched the names to the right and opted for a dual color based on Tesla Motors website.
+<b>Change #1:</b> I switched the names to the right and opted for a dual color based on TeslaMotors.com's colors.
 
 
 ## Second draft and feedback
