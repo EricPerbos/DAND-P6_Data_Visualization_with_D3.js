@@ -1,6 +1,6 @@
 ## Data Visualization and D3.js - Data Analyst Nanodegree (Udacity)
 
-###Latest active version -> [Tesla Motors in Europe: a visualization of quarterly sales figures](https://bl.ocks.org/EricPerbos/raw/3f4f1f4d637a131376e8a11886fee51d)
+###Current active version -> [Tesla Motors in Europe: a visualization of quarterly sales figures](https://bl.ocks.org/EricPerbos/raw/3f4f1f4d637a131376e8a11886fee51d)
 
 #### Summary
 Tesla Motors is a North American car company that designs, manufactures and sells electric vehicles all over the world (Wikipedia).
