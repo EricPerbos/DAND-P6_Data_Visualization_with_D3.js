@@ -46,7 +46,10 @@ I researched through different business publications and found an example with c
 <b>Feedback by Tesla shareholder #3:</b> "I think that the circles are an effective use of real estate given how many countries are listed and the marked differences in sales in each. </br> If one were to compare Norway's sales to Italy, the real estate used on the graph by Norway would push Italy off the page.</br>The circles, in my mind's eye, are essentially looking at the bar graph from above. The bigger the bar, the closer it is to me, and larger and easier to see.</br>I like how at the end, Eric does use the bar chart to show sales per million inhabitants. It provides a nice juxtaposition of the bar graph in relation to the circles.</br>Overall I found the graphic very informative and useful to show how government incentives and changes affect Tesla sales in Europe (see Denmark)."
 
 
-##### Ressources
+#### Ressources
+
+##### Project Evaluation Grid
+<a href="http://tinypic.com?ref=309h9ip" target="_blank"><img src="http://i68.tinypic.com/309h9ip.jpg" border="0" alt="Image and video hosting by TinyPic"></a>
 
 https://teslamotorsclub.com/tmc/threads/tesla-europe-registration-stats.61651/</br>
 http://bl.ocks.org/d3noob</br>
