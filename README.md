@@ -1,4 +1,7 @@
-## Data Visualization and D3.js - Data Analyst Nanodegree (Udacity)
+# Tesla Motors in Europe: impact of fiscal incentives on sales
+_by Eric Perbos-Brinck in fulfillment of Udacity’s [Data Analyst NanoDegree](https://www.udacity.com/course/data-analyst-nanodegree--nd002) (DAND), Project 6_  
+_Email: eric.perbos.brinck@alumni.insead.edu_
+</br>
 
 ###Current active version -> [Tesla Motors in Europe: a visualization of quarterly sales figures](https://bl.ocks.org/EricPerbos/raw/3f4f1f4d637a131376e8a11886fee51d)
 
